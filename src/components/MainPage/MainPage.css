@@ -1,0 +1,249 @@
+/* 전체 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 헤더 스타일 */
+.main-header {
+    background-color: #20b6ea;
+    color: #fff;
+    padding: 40px; /*상단바 넓이*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.main-header h1 {
+    margin: 0;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input {
+    padding: 10px;
+}
+
+/* 메인 컨텐츠 스타일 */
+.main-container {
+    max-width: 1920px; /* 최대 너비를 설정 */
+    margin: 0 auto;/* 상단바와 하단바 사이 중앙 정렬 */
+    padding: 0px;/* 전체적인 내부 여백 */
+    padding-top: 150px; /* 헤더 높이만큼 패딩 추가 */
+    padding-bottom: 150px; /* 글쓰기 버튼 높이만큼 패딩 추가 */
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;/* 제품 사이의 간격 */
+}
+
+.product-item {
+    border: 1px solid #ccc;/* 테두리 색상과 두께 조정 */
+    padding: 40px; /*각 물품화면에 대한 세로 사이즈*/
+    text-align: center;
+    background: #fff; /* 배경색 설정 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+}
+
+/* 내비게이션 스타일 */
+.navigation {
+    background-color: #f2f2f2; /* 배경색 설정 */
+    padding: 10px; /* 내부 여백 설정 */
+    position: fixed; /* 고정 위치 설정 */
+    bottom: 0; /* 하단에 위치 */
+    left: 0; /* 좌측 정렬 */
+    right: 0; /* 우측 정렬 */
+    z-index: 1; /* z-index 설정 */
+}
+
+.navigation ul {
+    list-style-type: none; /* 리스트 스타일 제거 */
+    margin: 0; /* 외부 여백 초기화 */
+    padding: 0; /* 내부 여백 초기화 */
+    display: flex; /* 플렉스 박스로 설정하여 내부 아이템들을 가로로 배열 */
+    justify-content: space-between; /* 내부 아이템들을 가로로 균등 분할하여 배치 */
+    max-width: 800px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+.navigation li {
+    margin: 0; /* 외부 여백 초기화 */
+}
+
+
+/*경로 아이콘 설정*/
+.icon-container {
+    width: 24px; /* 아이콘의 너비를 조절 */
+    height: 24px; /* 아이콘의 높이를 조절 */
+}
+
+.icon-container img {
+    width: 100%; /* 이미지가 부모 요소에 꽉 차도록 설정 */
+    height: 100%; /* 이미지가 부모 요소에 꽉 차도록 설정 */
+}
+
+/*버튼 아이콘 설정*/
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.icon-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px; /* 아이콘과 텍스트 사이의 간격 조절 */
+}
+
+.icon-button span {
+    font-size: 16px; /* 텍스트 크기 조절 */
+}
+
+
+/* 글쓰기 버튼 */
+.write-button {
+    position: fixed; /* 고정 위치 설정 */
+    bottom: 70px; /* 하단 여백 설정 */
+    right: 10px; /* 우측 여백 설정 */
+    display: inline-block; /* 인라인 블록 요소로 설정 */
+    width: 30px; /* 너비 설정 */
+    height: 30px; /* 높이 설정 */
+    border-radius: 50%; /* 원형 모양으로 설정 */
+    background-color: #ffffff; /* 배경색 설정 */
+    background-image: url('/Users/hamin/IdeaProjects/demo/src/main/fronted/public/img/plus.png');
+    background-size: cover; /* 배경 이미지 크기 조절 */
+    background-repeat: no-repeat; /* 배경 이미지 반복 설정 */
+    color: transparent; /* 텍스트 색상 투명으로 설정 */
+    text-decoration: none; /* 텍스트에 밑줄 제거 */
+    line-height: 40px; /* 텍스트 세로 가운데 정렬 */
+    font-size: 0; /* 텍스트 크기를 0으로 설정하여 숨김 */
+    z-index: 2; /* z-index 설정 */
+}
+
+
+/* 내비게이션 스타일 */
+.navigation {
+    background-color: #f2f2f2; /* 배경색 설정 */
+    padding: 10px; /* 내부 여백 설정 */
+    position: fixed; /* 고정 위치 설정 */
+    bottom: 0; /* 하단에 위치 */
+    left: 0; /* 좌측 정렬 */
+    right: 0; /* 우측 정렬 */
+    z-index: 1; /* z-index 설정 */
+}
+
+.navigation ul {
+    list-style-type: none; /* 리스트 스타일 제거 */
+    margin: 0; /* 외부 여백 초기화 */
+    padding: 0; /* 내부 여백 초기화 */
+    display: flex; /* 플렉스 박스로 설정하여 내부 아이템들을 가로로 배열 */
+    justify-content: space-between; /* 내부 아이템들을 가로로 균등 분할하여 배치 */
+    max-width: 800px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 가운데 정렬 */
+}
+
+.navigation li {
+    margin: 0; /* 외부 여백 초기화 */
+}
+
+.navigation a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #176B87; /* 링크 텍스트 색상 설정 */
+}
+
+.user-icon-container {
+    position: relative; /* 상위 컨테이너에 대한 위치 설정 */
+}
+
+.user-write-button {
+    position: absolute; /* 절대 위치 설정 */
+    top: -10px; /* 상단 위치 설정 */
+    right: -10px; /* 우측 위치 설정 */
+    display: inline-block; /* 인라인 블록 요소로 설정 */
+    width: 25px; /* 너비 설정 */
+    height: 20px; /* 높이 설정 */
+    border-radius: 50%; /* 원형 모양으로 설정 */
+    background-color: #125c72; /* 배경색 설정 */
+    color: #fff; /* 텍스트 색상 설정 */
+    text-decoration: none; /* 텍스트에 밑줄 제거 */
+    line-height: 20px; /* 텍스트 세로 가운데 정렬 */
+    font-size: 14px; /* 텍스트 크기 설정 */
+}
+
+/* 반응형 웹 디자인 */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+
+    /* 검색창 */
+    .search-form {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+    }
+
+    .main-container {
+        padding-top: 70px; /* 헤더 높이 증가에 따른 패딩 조정 */
+    }
+
+    /* 판매 목록창 */
+    .product-list {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/*.category-section {
+    position: fixed;
+    top: 0;
+    left: -300px; !* 왼쪽으로 숨겨짐 *!
+    width: 300px; !* 카테고리 영역의 너비 *!
+    height: 100%;
+    background-color: #fff;
+    transition: left 0.3s ease; !* 왼쪽으로 나타나고 숨겨질 때의 애니메이션 효과 *!
+}*/
+
+/* 사이드바 스타일 */
+.sidebar {
+    position: fixed; /* 고정 위치 설정 */
+    left: -150px; /* 왼쪽으로 숨김 */
+    top: 0px; /* 상단에 정렬 */
+    width: 150px; /* 너비 설정 */
+    height: 100%; /* 높이 설정 */
+    background-color: rgba(242, 242, 242, 0.9); /* 배경색 설정 (불투명도 조절 가능) */
+    padding: 20px; /* 내부 여백 설정 */
+    transition: left 0.3s ease; /* 왼쪽 위치 전환에 대한 애니메이션 설정 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 설정 */
+}
+
+/* 메인 컨테이너 스타일 */
+.main-container {
+    transition: margin-left 0.3s ease; /* 왼쪽 여백 전환에 대한 애니메이션 설정 */
+}
+
+/* 카테고리 버튼을 클릭하여 사이드바가 열렸을 때 */
+.main-container.sidebar-open {
+    margin-left: 250px; /* 사이드바 너비만큼 왼쪽 여백 추가 */
+}
+
+/* 카테고리 버튼을 클릭하여 사이드바가 닫혔을 때 */
+.main-container.no-sidebar {
+    margin-left: 0; /* 왼쪽 여백 초기화 */
+}
