@@ -54,65 +54,55 @@ function SingupPage() {
 
 
     // Submit 누를시 호출되는 함수
-    const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
+    e.preventDefault(); // 기본 제출 이벤트 막기
 
-        const formData = new FormData();
-        formData.append('mb_id', mb_id);
-        formData.append('mb_passwd', mb_passwd);
-        formData.append('mb_passwd_ck', mb_passwd_ck);
-        formData.append('mb_email', mb_email);
-        formData.append('mb_name', mb_name);
-        formData.append('mb_tel)', mb_tel);
-        formData.append('mb_addr', mb_addr);
+    const formData = new FormData();
+    formData.append('mb_id', mb_id);
+    formData.append('mb_passwd', mb_passwd);
+    formData.append('mb_email', mb_email);
+    formData.append('mb_name', mb_name);
+    formData.append('mb_tel', mb_tel); // 오타 수정
+    formData.append('mb_addr', mb_addr);
 
-        // 비밀번호와 비밀번호 확인이 일치하지 않으면 에러 메시지 출력
-        if (mb_passwd !== mb_passwd_ck) {
-            // post 하는 것을 막음
-            e.preventDefault();
-            setPasswordError('비밀번호가 일치하지 않습니다.');
-        } 
-        else {
-            setPasswordError('');
-        }
+    // 비밀번호와 비밀번호 확인이 일치하지 않으면 에러 메시지 출력
+    if (mb_passwd !== mb_passwd_ck) {
+        setPasswordError('비밀번호가 일치하지 않습니다.');
+        return; // 함수 종료
+    } else {
+        setPasswordError('');
+    }
 
-        if (!valid_ph(mb_tel)){
-            e.preventDefault();
-            setTelError('올바른 형식이 아닙니다. 다시 확인해주세요.');
-        }
-        else {
-            setTelError('');
-        }
-        // if (!availableId) {
-        //     e.preventDefault();
-        //     setIdError('이미 사용 중인 ID입니다.');
-        // }
-        // else{
-        //     setIdError('');
-        // }
-        try {
-            const response = await axios.post('http://localhost:8080/api/members', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
+    if (!valid_ph(mb_tel)){
+        setTelError('올바른 형식이 아닙니다. 다시 확인해주세요.');
+        return; // 함수 종료
+    } else {
+        setTelError('');
+    }
 
-            console.log(response.data);
-            // 성공 시 추가 작업 수행
-            console.log(response.data);
-            // 성공 시 추가 작업 수행
-        } catch (error) {
-            if (error.response) {
-                // 서버에서 반환한 에러 메시지 출력
-                console.error(error.response.data);
-            } else if (error.request) {
-                // 요청이 발생했으나 응답을 받지 못한 경우
-                console.error('네트워크 에러가 발생했습니다.');
-            } else {
-                // 그 외의 에러
-                console.error('에러가 발생했습니다.', error.message);
-            }
+    try {
+        const response = await axios.post('http://localhost:8080/api/members', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+
+        console.log(response.data);
+        // 성공 시 추가 작업 수행
+    } catch (error) {
+        if (error.response) {
+            // 서버에서 반환한 에러 메시지 출력
+            console.error(error.response.data);
+        } else if (error.request) {
+            // 요청이 발생했으나 응답을 받지 못한 경우
+            console.error('네트워크 에러가 발생했습니다.');
+        } else {
+            // 그 외의 에러
+            console.error('에러가 발생했습니다.', error.message);
         }
-    };
+    }
+};
+
 
     return (
         <div className="signup-container">
@@ -130,6 +120,7 @@ function SingupPage() {
                                 placeholder="ID" 
                                 maxLength="255" 
                                 className="form-control"
+                                name='mb_id'
                                 value={mb_id}
                                 onChange={(e) => setmb_id(e.target.value)}
                                 // 아이디 입력 시 호출되는 함수
@@ -143,6 +134,7 @@ function SingupPage() {
                             <input 
                                 type='password' 
                                 id='mb_passwd' 
+                                name='mb_passwd'
                                 placeholder='PASSWORD' 
                                 maxLength="255" 
                                 className="form-control"
@@ -171,6 +163,7 @@ function SingupPage() {
                             <input 
                                 type='text' 
                                 id='mb_email' 
+                                name='mb_email'
                                 placeholder='E-mail' 
                                 maxLength="255" 
                                 className="form-control"
@@ -183,6 +176,7 @@ function SingupPage() {
                             <input 
                                 type='text' 
                                 id='mb_name' 
+                                name='mb_name'
                                 placeholder='Name' 
                                 maxLength="255" 
                                 className="form-control"
@@ -195,6 +189,7 @@ function SingupPage() {
                             <input 
                                 type='text' 
                                 id='mb_tel' 
+                                name='mb_tel'
                                 placeholder='Phone Number'  
                                 className="form-control"
                                 value={mb_tel}
@@ -208,6 +203,7 @@ function SingupPage() {
                             <input 
                                 type='text' 
                                 id='mb_addr' 
+                                name='mb_addr'
                                 maxLength="255"
                                 placeholder='Address' 
                                 className="form-control"
@@ -219,7 +215,7 @@ function SingupPage() {
                         <div className='form-element'>
                             <input 
                                 type='submit' 
-                                value="Sing Up" 
+                                value="Sign Up" 
                                 className="bt-form-control"
                             />
                         </div>
