@@ -5,10 +5,14 @@ import React, { useState } from 'react'; // useState를 추가
 
 const MainPage = () => {
     const [showCategory, setShowCategory] = useState(false);
+    const [showSearchBar, setShowSearchBar] = useState(false);
 
     const toggleCategory = () => {
         setShowCategory(!showCategory);
     };
+    const toggleSearchBar = () => {
+        setShowSearchBar(!showSearchBar);
+    }
 
     // 카테고리 슬라이드 창이 왼쪽에서 오른쪽으로 나타나도록 스타일 설정
     const categoryStyle = {
@@ -19,9 +23,13 @@ const MainPage = () => {
         <div className="main-container">
             <header className="main-header">
                 <h1>앱 로고</h1>
-                <form className="search-form">
-                    <input type="text" placeholder="검색어 입력" />
-                </form>
+                    {showSearchBar && (
+                    <form className="search-form">
+                    <div>
+                        <input type="text" placeholder="검색어 입력" />
+                    </div>
+                    </form>
+                    )}
             </header>
 
             <div className="sidebar" style={categoryStyle}>
@@ -69,6 +77,11 @@ const MainPage = () => {
                     <li>
                         <button className="icon-button" onClick={toggleCategory}>
                             <img src={"img/category.png"} alt="카테고리" /> 
+                        </button>
+                    </li>
+                    <li>
+                        <button className="icon-button" onClick={toggleSearchBar}>
+                            <img src={"img/find.png"} alt="검색" />
                         </button>
                     </li>
                     <li>
