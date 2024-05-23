@@ -41,6 +41,7 @@ const MainPage = () => {
                     <li><button>책</button></li>
                     <li><button>생활용품</button></li>
                     <li><button>기타</button></li>
+                    <li><button>기타1</button></li>
                 </ul>
             </div>
 
