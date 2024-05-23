@@ -25,12 +25,23 @@ body {
 }
 
 .search-form {
+    display: none;
     display: flex;
     align-items: center;
 }
 
+/* showSearchBar 상태가 true일 때 검색 폼을 보이게 함 */
+.showSearchBar .search-form {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+  
 .search-form input {
     padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
 /* 메인 컨텐츠 스타일 */
